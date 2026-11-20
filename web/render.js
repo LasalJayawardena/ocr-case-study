@@ -30,9 +30,10 @@ function demoTile(key) {
 }
 
 function stop(s, side, seen, era) {
-  return `<article class="item side ${side} stop${s.demo ? " has-demo" : ""}" id="${s.id}" data-era="${era.id}">
-  <div class="lane" aria-hidden="true"><span class="node${s.demo ? " live" : ""}"></span><span class="lane-year">${(String(s.year).match(/\d{4}/) || [""])[0]}</span></div>
+  return `<article class="item side ${side} stop${s.demo ? " has-demo" : ""}${s.edge ? " edge" : ""}" id="${s.id}" data-era="${era.id}">
+  <div class="lane" aria-hidden="true"><span class="node${s.demo ? " live" : ""}${s.edge ? " edge" : ""}"></span><span class="lane-year">${(String(s.year).match(/\d{4}/) || [""])[0]}</span></div>
   <div class="card">
+    ${s.edge ? '<p class="edge-tag">Bleeding edge · an open question</p>' : ""}
     <div class="eyebrow"><span class="yr">${esc(s.year)}</span> · ${esc(s.who)}${s.venue ? ` · <em>${esc(s.venue)}</em>` : ""}</div>
     <h3>${esc(s.title)}</h3>
     <div class="vis"><div class="illo">${illo(s.illo)}</div>
@@ -104,7 +105,7 @@ function finale() {
 
   <div class="fin-block" id="lab"><p class="kicker">The lab</p><h2>Ten visualisers, one story</h2>
   <p class="fin-lede">Each stop above links to a working, in-browser visualiser. Here they all are, in reading order.</p>
-  <div class="lab">${["mnist", "crnn", "tesseract", "transformer", "paddle", "llm", "qwen", "legacy", "sota", "wsp"].map((k, i) => { const s = SITES[k];
+  <div class="lab">${["mnist", "crnn", "tesseract", "transformer", "paddle", "legacy", "llm", "qwen", "sota", "wsp"].map((k, i) => { const s = SITES[k];
     return `<a class="lab-card" href="${s.url}" target="_blank" rel="noopener"><span class="lab-i">${String(i + 1).padStart(2, "0")}</span><span class="lab-shot" data-shot="${s.shot}" aria-hidden="true"><span class="shot-fb illo">${illo(s.fb)}</span></span>${s.lock ? '<span class="lab-lock">password protected</span>' : ""}<span class="lab-n">${esc(s.name)} ${ext}</span><span class="lab-b">${esc(s.blurb)}</span></a>`; }).join("")}</div></div>
 
   <div class="fin-block" id="reading"><p class="kicker">Reading list</p><h2>The papers behind it</h2>
