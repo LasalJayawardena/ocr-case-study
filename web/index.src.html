@@ -1,0 +1,72 @@
+<title>Machines That Learned to Read · an OCR case study by lasal.ai</title>
+<meta name="description" content="A century of OCR as one scrolling story: 30+ papers from 1914 reading machines to 2026 document VLMs, each with an animated diagram, plus ten live in-browser visualisers. Built by lasal.ai.">
+<meta name="author" content="lasal.ai">
+<meta name="theme-color" content="#131411">
+<meta property="og:title" content="Machines That Learned to Read">
+<meta property="og:description" content="A century of OCR, one breakthrough at a time, with ten live visualisers. Built by lasal.ai.">
+<meta property="og:type" content="article">
+<link rel="icon" href="/*FAVICON*/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>/*CSS*/</style>
+<div class="page">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-learn" viewBox="0 0 24 24"><path d="M9.5 3.5a3 3 0 0 0-3 3 3 3 0 0 0-2.5 4.5 3.2 3.2 0 0 0 1 5.5 3 3 0 0 0 4.5 3h0.5V3.6z M14.5 3.5a3 3 0 0 1 3 3 3 3 0 0 1 2.5 4.5 3.2 3.2 0 0 1-1 5.5 3 3 0 0 1-4.5 3H14V3.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 10.5h2.5M14.5 13.5H17M9.5 15H8M14.5 8H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-vision" viewBox="0 0 24 24"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-seq" viewBox="0 0 24 24"><path d="M4 5h16a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 20 17h-9l-4.5 3.5V17H4a1.5 1.5 0 0 1-1.5-1.5v-9A1.5 1.5 0 0 1 4 5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 10h2M11 10h6M7 13h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-arch" viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-data" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-metric" viewBox="0 0 24 24"><path d="M3.5 17a8.5 8.5 0 1 1 17 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 17l4.5-6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="17" r="1.6" fill="currentColor"/><path d="M6.5 11.5l1 1M12 7.5v1.4M17.5 11.5l-1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2.8h8l4.5 4.5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3.8a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 2.8v4.5h4.5M8 11h8M8 14.5h8M8 18h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5l2.1 6.4 6.4 2.1-6.4 2.1L12 19.5l-2.1-6.4L3.5 11l6.4-2.1z" fill="currentColor"/><path d="M19 17l.8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8z" fill="currentColor"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M9 5h10v10M19 5L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5l8 3v6c0 5-3.4 8.8-8 10-4.6-1.2-8-5-8-10v-6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<!--ILLO_DEFS-->
+
+<header class="brand-bar">
+  <a class="brand" href="https://www.lasal.ai" aria-label="lasal.ai home"><!--LOGO--><span>lasal<b>.ai</b></span></a>
+  <span class="brand-sep">/</span><span class="brand-page">OCR case study</span>
+  <nav class="brand-links"><a href="#e0">Story</a><a href="#arc">The arc</a><a href="#lab">The lab</a><a href="#reading">Papers</a></nav>
+</header>
+
+<section class="hero" id="top">
+  <canvas id="glyphs" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <p class="kicker">A case study · 1914 to 2026</p>
+    <h1>Machines that learned <span>to read</span></h1>
+    <p class="hero-sub">A century of OCR as one river: from reading machines older than computers to 0.8B-parameter models that turn a page into JSON. Every breakthrough deleted one hand-built step. Follow the current; stop wherever a demo invites you in.</p>
+    <div class="stats">
+      <div><b>/*PAPERS*/</b><span>breakthroughs</span></div>
+      <div><b>112</b><span>years</span></div>
+      <div><b>6</b><span>eras</span></div>
+      <div><b>10</b><span>live visualisers</span></div>
+    </div>
+    <p class="hero-hint"><span class="j demo-j" tabindex="0" role="button" data-k="attention"><svg class="ji" aria-hidden="true"><use href="#i-seq"/></svg>Highlighted words</span> explain themselves: hover, focus or tap. The icon says what kind of idea it is:
+      <span class="legend"><span><svg class="ji"><use href="#i-learn"/></svg>learning</span><span><svg class="ji"><use href="#i-vision"/></svg>seeing</span><span><svg class="ji"><use href="#i-seq"/></svg>sequences</span><span><svg class="ji"><use href="#i-arch"/></svg>architecture</span><span><svg class="ji"><use href="#i-data"/></svg>data</span><span><svg class="ji"><use href="#i-metric"/></svg>measuring</span><span><svg class="ji"><use href="#i-doc"/></svg>documents</span></span></p>
+  </div>
+  <a class="scroll-cue" href="#e0" aria-label="Start the story"><span></span></a>
+</section>
+
+<!--MINIMAP-->
+
+<main class="road" id="road">
+  <svg class="river" id="river" aria-hidden="true"><defs><linearGradient id="riverGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1000"></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <path id="riverBed" class="river-bed"/><path id="riverFlow" class="river-flow"/><path id="riverShine" class="river-shine"/><circle id="riverHead" r="7" class="river-head"/></svg>
+  <!--ROAD-->
+</main>
+
+<!--FINALE-->
+
+<footer class="credit">
+  <p>Built by <a href="https://www.lasal.ai">lasal.ai</a> · Words, diagrams and visualisers are original work; papers are credited and linked where they appear.</p>
+  <p class="credit-s">Based on the talk <em>From MNIST to PaddleOCR: The Papers Behind OCR</em> (November 2026).</p>
+</footer>
+
+<div id="tip" class="tip" role="dialog" aria-live="polite" hidden><div class="tip-h"><svg class="ji" aria-hidden="true"><use href="#i-learn"/></svg><span class="tip-cat"></span></div><p class="tip-t"></p><p class="tip-d"></p><a class="tip-go" href="#">See it in the story</a></div>
+</div>
+<script>window.GLOSSARY=/*GLOSSARY*/null;window.CATS=/*CATS*/null;</script>
+<script>/*JS*/</script>

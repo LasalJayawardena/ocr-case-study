@@ -1,0 +1,6 @@
+{
+  "name": "ocr-case-study",
+  "private": true,
+  "description": "Machines That Learned to Read: a century of OCR as one scrolling case study. Built by lasal.ai",
+  "scripts": { "build": "node web/build.js" }
+}
