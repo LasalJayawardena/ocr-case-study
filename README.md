@@ -17,7 +17,7 @@ Ten live, in-browser visualisers are linked where they belong in the story. Jarg
 | 3 | [Tesseract Inside Out](https://tesseract-inside-out.vercel.app) | the classic engine and its LSTM |
 | 4 | [Transformer OCR](https://transformer-ocr.vercel.app) | TrOCR and its attention |
 | 5 | [PaddleOCR Viz](https://paddleocr-inside.vercel.app) | PP-OCRv6 and PaddleOCR-VL |
-| 6 | [LLM-OCR Vis](https://llm-ocr-vis.vercel.app) | Qwen vs Gemma internals |
+| 6 | [LLM-OCR Viz](https://llm-ocr-vis.vercel.app) | Qwen vs Gemma internals |
 | 7 | [Qwen3-VL Viz](https://qwen3vl-inside.vercel.app) | a 2B VLM writing JSON |
 | 8 | [Legacy IDP](https://legacy-idp.vercel.app) | OCR plus a rulebook |
 | 9 | [SOTA IDP](https://sota-idp.vercel.app) | a five-pass VLM pipeline |
