@@ -130,8 +130,12 @@ function finale() {
 }
 
 function minimap() {
-  return `<nav class="minimap" aria-label="Eras">${ERAS.map((e) => `<a href="#${e.id}" data-era="${e.id}" style="--c:${e.color}"><span class="mm-dot"></span><span class="mm-t">${e.num} ${esc(e.title)}</span></a>`).join("")}
-  <a href="#finale" data-era="finale" style="--c:var(--ochre)"><span class="mm-dot"></span><span class="mm-t">The arc</span></a></nav>`;
+  // the lens: what a machine of the current era could read, drawn at that era's resolution (case.js)
+  return `<nav class="minimap" aria-label="Eras">
+  <div class="mm-lens" aria-hidden="true"><canvas width="96" height="96"></canvas><i class="mm-scan"></i></div>
+  <div class="mm-read" aria-hidden="true"><b class="mm-year"></b><span class="mm-what"></span></div>
+  <div class="mm-rail"><span class="mm-fill"></span>${ERAS.map((e) => `<a href="#${e.id}" data-era="${e.id}" style="--c:${e.color}"><span class="mm-dot"></span><span class="mm-t">${e.num} ${esc(e.title)}</span></a>`).join("")}
+  <a href="#finale" data-era="finale" style="--c:var(--ochre)"><span class="mm-dot"></span><span class="mm-t">The arc</span></a></div></nav>`;
 }
 
 function render() {

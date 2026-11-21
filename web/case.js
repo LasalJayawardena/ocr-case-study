@@ -84,8 +84,84 @@
     const fin = $("#finale"); if (fin && fin.getBoundingClientRect().top < innerHeight * 0.5) cur = fin;
     $$(".minimap a").forEach((a) => a.classList.toggle("active", cur && a.dataset.era === cur.id));
     if (cur && cur.dataset.color) head.style.fill = cur.dataset.color;
-    $(".minimap").classList.toggle("on", R.top < innerHeight * 0.4 && (!fin || fin.getBoundingClientRect().bottom > innerHeight * 0.3));
+    const mm = $(".minimap");
+    mm.classList.toggle("on", R.top < innerHeight * 0.4 && (!fin || fin.getBoundingClientRect().bottom > innerHeight * 0.3));
+    // progress rail fills dot to dot; the lens sharpens as you read through each era
+    const order = [...eras, fin].filter(Boolean), idx = cur ? order.indexOf(cur) : 0;
+    const cb = (cur || order[0]).getBoundingClientRect(), f = Math.max(0, Math.min(1, (innerHeight * 0.5 - cb.top) / cb.height));
+    mm.style.setProperty("--p", cur ? Math.min(1, (idx + f) / (order.length - 1)) : 0);
+    mm.style.setProperty("--mm", (cur && cur.dataset.color) || "var(--ochre)");
+    let yr = "";
+    for (const n of nodes) if (n.y <= y + 2) { const t = n.el.parentNode.querySelector(".lane-year"); if (t && t.textContent) yr = t.textContent; }
+    lens.update(cur ? cur.id : "e0", f, yr);
   }
+
+  /* ---------- the reading lens: what a machine of this era could read, at this era's resolution ---------- */
+  const lens = (() => {
+    const cv = $(".mm-lens canvas");
+    if (!cv) return { update() {} };
+    const ctx = cv.getContext("2d"), S = 48, D = cv.width / S;
+    const ERA = {   // cell size in px (bigger = blurrier eye), fallback year, caption
+      e0: [8, "1914", "a letter"], e1: [4, "1998", "a digit"], e2: [3, "2015", "a word"],
+      e3: [2, "2017", "a page"], e4: [1, "2020", "a layout"], e5: [1, "2026", "data"], finale: [1, "now", "data"] };
+    const KEYS = Object.keys(ERA);
+    const sans = getComputedStyle(document.body).getPropertyValue("--sans") || "sans-serif";
+    const mono = "'JetBrains Mono', monospace";
+    const DRAW = {
+      e0: (o) => { o.font = `700 40px ${mono}`; o.fillText("A", 24, 27); },
+      e1: (o) => { o.lineWidth = 5.5; o.beginPath(); o.moveTo(12, 12); o.lineTo(36, 11); o.quadraticCurveTo(27, 23, 21, 39); o.moveTo(18, 25); o.lineTo(31, 24); o.stroke(); },
+      e2: (o) => { o.rotate(-0.12); o.font = `700 19px ${sans}`; o.fillText("CAT", 21, 29); },
+      e3: (o) => { o.lineWidth = 1.5; o.strokeRect(10, 4, 28, 40); for (const [y, w] of [[9, 18], [13, 20], [17, 14]]) o.fillRect(14, y, w, 2); o.strokeRect(14, 24, 20, 14); o.fillRect(14, 29, 20, 1); o.fillRect(14, 33, 20, 1); o.fillRect(23, 24, 1, 14); },
+      e4: (o) => { o.lineWidth = 1.5; o.strokeRect(10, 4, 28, 40); const b = [["#f6ad55", 14, 8, 20, 4], ["#4fd1c5", 14, 15, 20, 8], ["#b794f4", 14, 26, 9, 13], ["#68d391", 25, 26, 9, 13]];
+        for (const [c, x, y, w, h] of b) { o.fillStyle = c; o.fillRect(x, y, w, h); } },
+      e5: (o) => { o.font = `700 16px ${mono}`; o.fillText("{42}", 24, 25); },
+    };
+    DRAW.finale = DRAW.e5;
+    const MULTI = { e4: true };
+    let cache = {};
+    const target = (k) => {
+      if (cache[k]) return cache[k];
+      const off = document.createElement("canvas"); off.width = off.height = S;
+      const o = off.getContext("2d"); o.fillStyle = o.strokeStyle = "#fff"; o.lineCap = o.lineJoin = "round"; o.textAlign = "center"; o.textBaseline = "middle";
+      DRAW[k](o);
+      return (cache[k] = o.getImageData(0, 0, S, S).data);
+    };
+    document.fonts && document.fonts.ready.then(() => { cache = {}; paint(); });
+    const rgb = (hex) => { const m = /^#?([0-9a-f]{6})$/i.exec(String(hex).trim()); const n = m ? parseInt(m[1], 16) : 0xe3b25c; return [n >> 16, (n >> 8) & 255, n & 255]; };
+    const year = $(".mm-year"), what = $(".mm-what");
+    let st = { k: "e0", f: 0 };
+    function paint() {
+      const { k, f } = st, i = KEYS.indexOf(k), next = KEYS[Math.min(KEYS.length - 1, i + 1)];
+      const c = Math.max(1, ERA[k][0] + (ERA[next][0] - ERA[k][0]) * f * f);   // sharpen toward the next era
+      const noise = reduce || k === "e5" || k === "finale" ? 0 : 0.55 * (1 - f);  // and the guesses settle
+      const px = target(k), col = rgb(k === "finale" ? "#E3B25C" : (document.getElementById(k) || {}).dataset?.color);
+      ctx.setTransform(D, 0, 0, D, 0, 0); ctx.clearRect(0, 0, S, S);
+      for (let y = 0; y < S; y += c) for (let x = 0; x < S; x += c) {
+        const x0 = Math.floor(x), y0 = Math.floor(y), x1 = Math.min(S, Math.floor(x + c)), y1 = Math.min(S, Math.floor(y + c));
+        let r = 0, g = 0, b = 0, a = 0, n = 0;
+        for (let yy = y0; yy < y1; yy++) for (let xx = x0; xx < x1; xx++) { const j = (yy * S + xx) * 4; r += px[j]; g += px[j + 1]; b += px[j + 2]; a += px[j + 3]; n++; }
+        if (!n) continue;
+        let al = a / n / 255;
+        if (noise) al = Math.max(0, Math.min(1, al + (Math.random() - 0.5) * noise * 1.6));
+        if (al < 0.04) continue;
+        const cc = MULTI[k] && a ? [r / n * 255 / (a / n) | 0, g / n * 255 / (a / n) | 0, b / n * 255 / (a / n) | 0] : col;
+        ctx.fillStyle = `rgba(${cc[0]},${cc[1]},${cc[2]},${al.toFixed(2)})`;
+        ctx.fillRect(x0, y0, x1 - x0, y1 - y0);
+      }
+    }
+    // while the eye is still unsure, keep its guesses flickering
+    if (!reduce) setInterval(() => { if (st.f < 0.97 && !/e5|finale/.test(st.k) && $(".minimap.on") && cv.offsetParent) paint(); }, 160);
+    return {
+      update(k, f, yr) {
+        if (!ERA[k]) k = "e0";
+        const changed = k !== st.k || Math.abs(f - st.f) > 0.01;
+        st = { k, f };
+        year.textContent = (k === "e5" || k === "finale") ? ERA[k][1] : (yr || ERA[k][1]);
+        what.textContent = ERA[k][2];
+        if (changed) paint();
+      },
+    };
+  })();
   addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   let rt; const rebuild = () => { clearTimeout(rt); rt = setTimeout(build, 120); };
   addEventListener("resize", rebuild);
