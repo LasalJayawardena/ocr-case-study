@@ -72,10 +72,25 @@ function board(b, era) {
   <p class="board-sub">Axis starts at 85. Small specialists sit above frontier general models; no invoices or receipts are in this benchmark.</p></div></div>`;
 }
 
+// Stops run in date order within an era, so the lane years never go backwards.
+// A fact, ticker or board travels with the stop it follows; items before the first stop stay first.
+const startYear = (s) => +(String(s.year).match(/\d{4}/) || [NaN])[0];
+function chronological(items) {
+  const stops = items.filter((x) => x.type === "stop");
+  if (!stops.length || stops.some((s) => isNaN(startYear(s)))) return items; // e.g. era 05 has no dates
+  const lead = [], groups = [];
+  for (const x of items) {
+    if (x.type === "stop") groups.push([x]);
+    else (groups.length ? groups[groups.length - 1] : lead).push(x);
+  }
+  groups.sort((a, b) => startYear(a[0]) - startYear(b[0])); // stable: equal years keep authored order
+  return lead.concat(...groups);
+}
+
 function era(e) {
   const seen = new Set();
   let side = 0;
-  const items = e.items.map((x) => {
+  const items = chronological(e.items).map((x) => {
     if (x.type === "stop") return stop(x, side++ % 2 ? "right" : "left", seen, e);
     if (x.type === "fact") return fact(x, side++ % 2 ? "right" : "left", seen, e);
     if (x.type === "ticker") return ticker(x, e);

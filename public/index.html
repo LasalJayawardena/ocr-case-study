@@ -468,6 +468,28 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
     <a class="cite" href="https://doi.org/10.1007/BF00344251" target="_blank" rel="noopener">doi:10.1007/BF00344251 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
+<article class="item side left stop" id="tesseract1" data-era="e0">
+  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">1985</span></div>
+  <div class="card">
+    
+    <div class="eyebrow"><span class="yr">1985 to 1994</span> · Ray Smith (HP Labs Bristol) · <em>open-sourced 2005, Google from 2006</em></div>
+    <h3>Tesseract: spline baselines and an adaptive classifier</h3>
+    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="A curved baseline is followed by a spline instead of a straight line"><rect x="18" y="59.61596803045927" width="11" height="26" class="ink a-light" style="--d:0.00s"/><rect x="35" y="71.02593803055385" width="11" height="18" class="ink a-light" style="--d:0.05s"/><rect x="52" y="70.35279263290137" width="11" height="22" class="ink a-light" style="--d:0.10s"/><rect x="69" y="81.32700986318576" width="11" height="14" class="ink a-light" style="--d:0.15s"/><rect x="86" y="77.70763632976036" width="11" height="20" class="ink a-light" style="--d:0.20s"/><rect x="103" y="75.30180783443402" width="11" height="24" class="ink a-light" style="--d:0.25s"/><rect x="120" y="83.98037408280108" width="11" height="16" class="ink a-light" style="--d:0.30s"/><rect x="137" y="77.6883616730077" width="11" height="22" class="ink a-light" style="--d:0.35s"/><rect x="154" y="80.4494277138307" width="11" height="18" class="ink a-light" style="--d:0.40s"/><rect x="171" y="70.3639432664186" width="11" height="26" class="ink a-light" style="--d:0.45s"/><rect x="188" y="73.6008618778472" width="11" height="20" class="ink a-light" style="--d:0.50s"/><rect x="205" y="74.38403196954074" width="11" height="16" class="ink a-light" style="--d:0.55s"/><path d="M14 92 L226 92" class="dash"/><path d="M14 86 Q120 124 226 84" class="curve a-draw"/><circle cx="14" cy="86" r="3.5" class="dot"/><circle cx="84" cy="101" r="3.5" class="dot"/><circle cx="156" cy="101" r="3.5" class="dot"/><circle cx="226" cy="84" r="3.5" class="dot"/><text x="120" y="26" class="cap" text-anchor="middle">a quadratic spline per line</text><text x="120" y="138" class="cap soft" text-anchor="middle">no de-skewing of the page</text></svg></div>
+      <div class="big"><span class="big-n">Top 3</span><span class="big-l">1995 UNLV accuracy test</span></div></div>
+    <dl class="bhr">
+      <div><dt>Before</dt><dd>OCR engines assumed straight, de-skewed lines and a fixed set of character models.</dd></div>
+      <div><dt>The breakthrough</dt><dd>Outlines of connected components are gathered into blobs, blobs into lines, and each line gets a quadratic <span class="j" data-k="spline" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-doc"/></svg>spline baseline</span>, so curved and skewed text needs no straightening. Words go through two passes: confident words from pass one train an <span class="j" data-k="adaptive" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-learn"/></svg>Adaptive classifier</span> on the fly, and pass two re-reads the unsure ones.</dd></div>
+      <div><dt>Result</dt><dd>Top three in the 1995 UNLV accuracy test. The adaptive classifier cuts errors 30 to 60% on long documents. The default free OCR engine for over a decade.</dd></div>
+    </dl>
+    
+    <a class="cite" href="https://research.google/pubs/an-overview-of-the-tesseract-ocr-engine/" target="_blank" rel="noopener">An Overview of the Tesseract OCR Engine (ICDAR 2007) <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
+  </div>
+</article>
+<aside class="item side right fact" data-era="e0">
+  <div class="lane" aria-hidden="true"><span class="node trib"></span></div>
+  <div class="card fact-card"><div class="fact-h"><svg aria-hidden="true"><use href="#i-spark"/></svg>Wait, really?</div>
+  <p>Tesseract's adaptive classifier learns while it reads: after three confident examples of a character it starts recognising it. Read 'infinity' well and it reads the 'i' in the next word better.</p></div>
+</aside>
 <article class="item side left stop" id="lecun89" data-era="e0">
   <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">1989</span></div>
   <div class="card">
@@ -489,33 +511,6 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
   <div class="lane" aria-hidden="true"><span class="node trib"></span></div>
   <div class="card fact-card"><div class="fact-h"><svg aria-hidden="true"><use href="#i-spark"/></svg>Wait, really?</div>
   <p>In 2022 Andrej Karpathy re-ran LeCun's 1989 network with modern tricks (Adam, augmentation, dropout) and cut its errors by about 60%, same tiny architecture. The idea was sound in 1989; the tools were missing.</p><a class="cite" href="https://karpathy.github.io/2022/03/14/lecun1989/" target="_blank" rel="noopener">Karpathy's write-up <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a></div>
-</aside>
-<article class="item side left stop has-demo" id="tesseract1" data-era="e0">
-  <div class="lane" aria-hidden="true"><span class="node live"></span><span class="lane-year">1985</span></div>
-  <div class="card">
-    
-    <div class="eyebrow"><span class="yr">1985 to 1994</span> · Ray Smith (HP Labs Bristol) · <em>open-sourced 2005, Google from 2006</em></div>
-    <h3>Tesseract: spline baselines and an adaptive classifier</h3>
-    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="A curved baseline is followed by a spline instead of a straight line"><rect x="18" y="59.61596803045927" width="11" height="26" class="ink a-light" style="--d:0.00s"/><rect x="35" y="71.02593803055385" width="11" height="18" class="ink a-light" style="--d:0.05s"/><rect x="52" y="70.35279263290137" width="11" height="22" class="ink a-light" style="--d:0.10s"/><rect x="69" y="81.32700986318576" width="11" height="14" class="ink a-light" style="--d:0.15s"/><rect x="86" y="77.70763632976036" width="11" height="20" class="ink a-light" style="--d:0.20s"/><rect x="103" y="75.30180783443402" width="11" height="24" class="ink a-light" style="--d:0.25s"/><rect x="120" y="83.98037408280108" width="11" height="16" class="ink a-light" style="--d:0.30s"/><rect x="137" y="77.6883616730077" width="11" height="22" class="ink a-light" style="--d:0.35s"/><rect x="154" y="80.4494277138307" width="11" height="18" class="ink a-light" style="--d:0.40s"/><rect x="171" y="70.3639432664186" width="11" height="26" class="ink a-light" style="--d:0.45s"/><rect x="188" y="73.6008618778472" width="11" height="20" class="ink a-light" style="--d:0.50s"/><rect x="205" y="74.38403196954074" width="11" height="16" class="ink a-light" style="--d:0.55s"/><path d="M14 92 L226 92" class="dash"/><path d="M14 86 Q120 124 226 84" class="curve a-draw"/><circle cx="14" cy="86" r="3.5" class="dot"/><circle cx="84" cy="101" r="3.5" class="dot"/><circle cx="156" cy="101" r="3.5" class="dot"/><circle cx="226" cy="84" r="3.5" class="dot"/><text x="120" y="26" class="cap" text-anchor="middle">a quadratic spline per line</text><text x="120" y="138" class="cap soft" text-anchor="middle">no de-skewing of the page</text></svg></div>
-      <div class="big"><span class="big-n">Top 3</span><span class="big-l">1995 UNLV accuracy test</span></div></div>
-    <dl class="bhr">
-      <div><dt>Before</dt><dd>OCR engines assumed straight, de-skewed lines and a fixed set of character models.</dd></div>
-      <div><dt>The breakthrough</dt><dd>Outlines of connected components are gathered into blobs, blobs into lines, and each line gets a quadratic <span class="j" data-k="spline" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-doc"/></svg>spline baseline</span>, so curved and skewed text needs no straightening. Words go through two passes: confident words from pass one train an <span class="j" data-k="adaptive" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-learn"/></svg>Adaptive classifier</span> on the fly, and pass two re-reads the unsure ones.</dd></div>
-      <div><dt>Result</dt><dd>Top three in the 1995 UNLV accuracy test. The adaptive classifier cuts errors 30 to 60% on long documents. The default free OCR engine for over a decade.</dd></div>
-    </dl>
-    <a class="demo" href="https://tesseract-inside-out.vercel.app" target="_blank" rel="noopener">
-    <span class="demo-shot" data-shot="tesseract" aria-hidden="true"><span class="shot-fb illo"><svg viewBox="0 0 240 150" role="img" aria-label="Forward and reverse LSTMs run along a text line"><rect x="14" y="72" width="212" height="38" class="px"/><rect x="24" y="80" width="10" height="22" class="ink"/><rect x="40" y="80" width="10" height="22" class="ink"/><rect x="56" y="80" width="10" height="22" class="ink"/><rect x="72" y="80" width="10" height="22" class="ink"/><rect x="88" y="80" width="10" height="22" class="ink"/><rect x="104" y="80" width="10" height="22" class="ink"/><rect x="120" y="80" width="10" height="22" class="ink"/><rect x="136" y="80" width="10" height="22" class="ink"/><rect x="152" y="80" width="10" height="22" class="ink"/><rect x="168" y="80" width="10" height="22" class="ink"/><rect x="184" y="80" width="10" height="22" class="ink"/><rect x="200" y="80" width="10" height="22" class="ink"/><rect x="20" y="70" width="18" height="42" class="kern a-scanx"/><path d="M220 52 H22" class="ln a-draw" marker-end="url(#ah)"/><text x="120" y="46" class="cap" text-anchor="middle">reversed LSTM</text><path d="M22 124 H220" class="ln a-draw" marker-end="url(#ah)"/><text x="120" y="140" class="cap" text-anchor="middle">forward LSTM</text><text x="120" y="24" class="mono small soft" text-anchor="middle">-EE--n--c--yy--c--l--o-</text></svg></span><span class="demo-play"><svg><use href="#i-play"/></svg></span></span>
-    <span class="demo-body"><span class="demo-k">Live visualiser</span>
-    <span class="demo-name">Tesseract Inside Out <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></span>
-    <span class="demo-blurb">The real Tesseract 5 running in your browser, with its LSTM rebuilt in plain JavaScript so every gate can be inspected.</span>
-    <span class="chips"><span class="chip">1,461,007 weights</span><span class="chip">classic engine vs LSTM</span><span class="chip">fine-tuning: CER 0.040 to 0.002 on clean lines</span></span></span></a>
-    <a class="cite" href="https://research.google/pubs/an-overview-of-the-tesseract-ocr-engine/" target="_blank" rel="noopener">An Overview of the Tesseract OCR Engine (ICDAR 2007) <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
-  </div>
-</article>
-<aside class="item side right fact" data-era="e0">
-  <div class="lane" aria-hidden="true"><span class="node trib"></span></div>
-  <div class="card fact-card"><div class="fact-h"><svg aria-hidden="true"><use href="#i-spark"/></svg>Wait, really?</div>
-  <p>Tesseract's adaptive classifier learns while it reads: after three confident examples of a character it starts recognising it. Read 'infinity' well and it reads the 'i' in the next word better.</p></div>
 </aside>
 </section>
 <section class="era" id="e1" style="--c:#E3B25C" data-color="#E3B25C">
@@ -627,7 +622,58 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
     <a class="cite" href="https://arxiv.org/abs/1507.05717" target="_blank" rel="noopener">arXiv 1507.05717 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
-<article class="item side right stop has-demo" id="tesseract4" data-era="e2">
+<article class="item side right stop" id="stn" data-era="e2">
+  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2015</span></div>
+  <div class="card">
+    
+    <div class="eyebrow"><span class="yr">2015</span> · Jaderberg, Simonyan, Zisserman, Kavukcuoglu (DeepMind) · <em>NeurIPS</em></div>
+    <h3>Spatial Transformer: a layer that learns to un-warp its input</h3>
+    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="A warped grid is straightened by a learned transform"><g class="a-unwarp"><path d="M40 30 V120" class="grid"/><path d="M80 30 V120" class="grid"/><path d="M120 30 V120" class="grid"/><path d="M160 30 V120" class="grid"/><path d="M200 30 V120" class="grid"/><path d="M40 30 H200" class="grid"/><path d="M40 60 H200" class="grid"/><path d="M40 90 H200" class="grid"/><path d="M40 120 H200" class="grid"/><text x="120" y="84" class="big" text-anchor="middle">text</text></g><text x="120" y="144" class="cap" text-anchor="middle">a learned warp straightens the input</text></svg></div>
+      <div class="big"><span class="big-n">0</span><span class="big-l">warp labels needed</span></div></div>
+    <dl class="bhr">
+      <div><dt>Before</dt><dd>CNNs tolerated small shifts but not rotation, scale or warping.</dd></div>
+      <div><dt>The breakthrough</dt><dd>A drop-in, differentiable module. A localisation network predicts transform parameters, a grid generator maps the output grid back into the input, and a sampler reads it bilinearly. Gradients flow through all three.</dd></div>
+      <div><dt>Result</dt><dd>Trained with class labels only, it learns to crop, scale and straighten by itself.</dd></div>
+    </dl>
+    
+    <a class="cite" href="https://arxiv.org/abs/1506.02025" target="_blank" rel="noopener">arXiv 1506.02025 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
+  </div>
+</article>
+<article class="item side left stop" id="east" data-era="e2">
+  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2017</span></div>
+  <div class="card">
+    
+    <div class="eyebrow"><span class="yr">2017</span> · Zhou, Yao et al. (Megvii) · <em>CVPR</em></div>
+    <h3>EAST: predict word geometry at every pixel, in one network</h3>
+    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="Each pixel predicts the distances to its text box"><g transform="rotate(-8 120 78)"><rect x="50" y="56" width="140" height="44" class="box a-fade" style="--d:1.2s"/><circle cx="62" cy="66" r="2.6" class="dot a-light" style="--d:0.00s"/><circle cx="84" cy="66" r="2.6" class="dot a-light" style="--d:0.05s"/><circle cx="106" cy="66" r="2.6" class="dot a-light" style="--d:0.10s"/><circle cx="128" cy="66" r="2.6" class="dot a-light" style="--d:0.15s"/><circle cx="150" cy="66" r="2.6" class="dot a-light" style="--d:0.20s"/><circle cx="172" cy="66" r="2.6" class="dot a-light" style="--d:0.25s"/><circle cx="62" cy="78" r="2.6" class="dot a-light" style="--d:0.30s"/><circle cx="84" cy="78" r="2.6" class="dot a-light" style="--d:0.35s"/><circle cx="106" cy="78" r="2.6" class="dot a-light" style="--d:0.40s"/><circle cx="128" cy="78" r="2.6" class="dot a-light" style="--d:0.45s"/><circle cx="150" cy="78" r="2.6" class="dot a-light" style="--d:0.50s"/><circle cx="172" cy="78" r="2.6" class="dot a-light" style="--d:0.55s"/><circle cx="62" cy="90" r="2.6" class="dot a-light" style="--d:0.60s"/><circle cx="84" cy="90" r="2.6" class="dot a-light" style="--d:0.65s"/><circle cx="106" cy="90" r="2.6" class="dot a-light" style="--d:0.70s"/><circle cx="128" cy="90" r="2.6" class="dot a-light" style="--d:0.75s"/><circle cx="150" cy="90" r="2.6" class="dot a-light" style="--d:0.80s"/><circle cx="172" cy="90" r="2.6" class="dot a-light" style="--d:0.85s"/><path d="M106 78 V56 M106 78 V100 M106 78 H50 M106 78 H190" class="ray a-fade" style="--d:.9s"/></g><text x="120" y="132" class="cap" text-anchor="middle">every pixel: score, 4 distances, angle</text></svg></div>
+      <div class="big"><span class="big-n">13.2 fps</span><span class="big-l">one network, one merge step</span></div></div>
+    <dl class="bhr">
+      <div><dt>Before</dt><dd>Text detection was a slow chain of proposals, filters and word splitting.</dd></div>
+      <div><dt>The breakthrough</dt><dd>A single fully convolutional network predicts, at every pixel, a text score plus the distances to the four box edges and an angle. One <span class="j" data-k="nms" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-vision"/></svg>Non-maximum suppression</span> step merges the overlapping boxes.</dd></div>
+      <div><dt>Result</dt><dd>F-score 0.78 on ICDAR 2015 at 13.2 frames a second. Weak spot: very long or curved text, which the receptive field cannot see end to end.</dd></div>
+    </dl>
+    
+    <a class="cite" href="https://arxiv.org/abs/1704.03155" target="_blank" rel="noopener">arXiv 1704.03155 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
+  </div>
+</article>
+<article class="item side right stop" id="transformer" data-era="e2">
+  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2017</span></div>
+  <div class="card">
+    
+    <div class="eyebrow"><span class="yr">2017</span> · Vaswani, Shazeer, Parmar et al. (Google) · <em>NeurIPS</em></div>
+    <h3>Transformer: attention alone, no recurrence</h3>
+    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="Attention lines connecting every word to every other word"><path d="M30 46 C30 80 30 70 30 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M30 46 C30 80 102 70 102 104" class="thread a-flick" style="--d:0.4s;--o:0.35"/><path d="M30 46 C30 80 174 70 174 104" class="thread a-flick" style="--d:0.8s;--o:0.35"/><path d="M66 46 C66 80 30 70 30 104" class="thread a-flick" style="--d:1.2000000000000002s;--o:0.35"/><path d="M66 46 C66 80 66 70 66 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M66 46 C66 80 102 70 102 104" class="thread a-flick" style="--d:0.2s;--o:0.35"/><path d="M66 46 C66 80 138 70 138 104" class="thread a-flick" style="--d:0.4s;--o:0.35"/><path d="M66 46 C66 80 174 70 174 104" class="thread a-flick" style="--d:0.6000000000000001s;--o:0.35"/><path d="M66 46 C66 80 210 70 210 104" class="thread a-flick" style="--d:0.8s;--o:0.95"/><path d="M102 46 C102 80 30 70 30 104" class="thread a-flick" style="--d:1s;--o:0.35"/><path d="M102 46 C102 80 102 70 102 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M102 46 C102 80 174 70 174 104" class="thread a-flick" style="--d:0.4s;--o:0.35"/><path d="M138 46 C138 80 66 70 66 104" class="thread a-flick" style="--d:1s;--o:0.35"/><path d="M138 46 C138 80 138 70 138 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M138 46 C138 80 210 70 210 104" class="thread a-flick" style="--d:0.4s;--o:0.35"/><path d="M174 46 C174 80 30 70 30 104" class="thread a-flick" style="--d:0.6000000000000001s;--o:0.35"/><path d="M174 46 C174 80 102 70 102 104" class="thread a-flick" style="--d:1s;--o:0.35"/><path d="M174 46 C174 80 174 70 174 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M210 46 C210 80 66 70 66 104" class="thread a-flick" style="--d:0.6000000000000001s;--o:0.35"/><path d="M210 46 C210 80 138 70 138 104" class="thread a-flick" style="--d:1s;--o:0.35"/><path d="M210 46 C210 80 210 70 210 104" class="thread a-flick" style="--d:0s;--o:0.35"/><rect x="14" y="28" width="32" height="18" class="lay"/><text x="30" y="41" class="mono small" text-anchor="middle">The</text><rect x="14" y="104" width="32" height="18" class="lay"/><text x="30" y="117" class="mono small" text-anchor="middle">The</text><rect x="50" y="28" width="32" height="18" class="lay"/><text x="66" y="41" class="mono small" text-anchor="middle">total</text><rect x="50" y="104" width="32" height="18" class="lay"/><text x="66" y="117" class="mono small" text-anchor="middle">total</text><rect x="86" y="28" width="32" height="18" class="lay"/><text x="102" y="41" class="mono small" text-anchor="middle">is</text><rect x="86" y="104" width="32" height="18" class="lay"/><text x="102" y="117" class="mono small" text-anchor="middle">is</text><rect x="122" y="28" width="32" height="18" class="lay"/><text x="138" y="41" class="mono small" text-anchor="middle">due</text><rect x="122" y="104" width="32" height="18" class="lay"/><text x="138" y="117" class="mono small" text-anchor="middle">due</text><rect x="158" y="28" width="32" height="18" class="lay"/><text x="174" y="41" class="mono small" text-anchor="middle">on</text><rect x="158" y="104" width="32" height="18" class="lay"/><text x="174" y="117" class="mono small" text-anchor="middle">on</text><rect x="194" y="28" width="32" height="18" class="lay"/><text x="210" y="41" class="mono small" text-anchor="middle">receipt</text><rect x="194" y="104" width="32" height="18" class="lay"/><text x="210" y="117" class="mono small" text-anchor="middle">receipt</text><text x="120" y="142" class="cap soft" text-anchor="middle">every token attends to every token</text></svg></div>
+      <div class="big"><span class="big-n">0</span><span class="big-l">recurrent steps</span></div></div>
+    <dl class="bhr">
+      <div><dt>Before</dt><dd>Sequence models used recurrence, so training was serial and long-range context was hard to learn.</dd></div>
+      <div><dt>The breakthrough</dt><dd>Every <span class="j" data-k="token" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-seq"/></svg>Token</span> looks at every other token through <span class="j" data-k="attention" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-seq"/></svg>scaled dot-product attention</span>, in parallel, with many heads at once. An <span class="j" data-k="encoder" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-arch"/></svg>Encoder</span> builds context; a <span class="j" data-k="decoder" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-arch"/></svg>Decoder</span> writes the output one token at a time while attending back to it.</dd></div>
+      <div><dt>Result</dt><dd>A new state of the art in translation at a fraction of the training cost. It became the architecture of every modern language and vision-language model.</dd></div>
+    </dl>
+    
+    <a class="cite" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">arXiv 1706.03762 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
+  </div>
+</article>
+<article class="item side left stop has-demo" id="tesseract4" data-era="e2">
   <div class="lane" aria-hidden="true"><span class="node live"></span><span class="lane-year">2018</span></div>
   <div class="card">
     
@@ -649,41 +695,7 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
     <a class="cite" href="https://tesseract-ocr.github.io/tessdoc/" target="_blank" rel="noopener">Tesseract documentation <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
-<article class="item side left stop" id="east" data-era="e2">
-  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2017</span></div>
-  <div class="card">
-    
-    <div class="eyebrow"><span class="yr">2017</span> · Zhou, Yao et al. (Megvii) · <em>CVPR</em></div>
-    <h3>EAST: predict word geometry at every pixel, in one network</h3>
-    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="Each pixel predicts the distances to its text box"><g transform="rotate(-8 120 78)"><rect x="50" y="56" width="140" height="44" class="box a-fade" style="--d:1.2s"/><circle cx="62" cy="66" r="2.6" class="dot a-light" style="--d:0.00s"/><circle cx="84" cy="66" r="2.6" class="dot a-light" style="--d:0.05s"/><circle cx="106" cy="66" r="2.6" class="dot a-light" style="--d:0.10s"/><circle cx="128" cy="66" r="2.6" class="dot a-light" style="--d:0.15s"/><circle cx="150" cy="66" r="2.6" class="dot a-light" style="--d:0.20s"/><circle cx="172" cy="66" r="2.6" class="dot a-light" style="--d:0.25s"/><circle cx="62" cy="78" r="2.6" class="dot a-light" style="--d:0.30s"/><circle cx="84" cy="78" r="2.6" class="dot a-light" style="--d:0.35s"/><circle cx="106" cy="78" r="2.6" class="dot a-light" style="--d:0.40s"/><circle cx="128" cy="78" r="2.6" class="dot a-light" style="--d:0.45s"/><circle cx="150" cy="78" r="2.6" class="dot a-light" style="--d:0.50s"/><circle cx="172" cy="78" r="2.6" class="dot a-light" style="--d:0.55s"/><circle cx="62" cy="90" r="2.6" class="dot a-light" style="--d:0.60s"/><circle cx="84" cy="90" r="2.6" class="dot a-light" style="--d:0.65s"/><circle cx="106" cy="90" r="2.6" class="dot a-light" style="--d:0.70s"/><circle cx="128" cy="90" r="2.6" class="dot a-light" style="--d:0.75s"/><circle cx="150" cy="90" r="2.6" class="dot a-light" style="--d:0.80s"/><circle cx="172" cy="90" r="2.6" class="dot a-light" style="--d:0.85s"/><path d="M106 78 V56 M106 78 V100 M106 78 H50 M106 78 H190" class="ray a-fade" style="--d:.9s"/></g><text x="120" y="132" class="cap" text-anchor="middle">every pixel: score, 4 distances, angle</text></svg></div>
-      <div class="big"><span class="big-n">13.2 fps</span><span class="big-l">one network, one merge step</span></div></div>
-    <dl class="bhr">
-      <div><dt>Before</dt><dd>Text detection was a slow chain of proposals, filters and word splitting.</dd></div>
-      <div><dt>The breakthrough</dt><dd>A single fully convolutional network predicts, at every pixel, a text score plus the distances to the four box edges and an angle. One <span class="j" data-k="nms" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-vision"/></svg>Non-maximum suppression</span> step merges the overlapping boxes.</dd></div>
-      <div><dt>Result</dt><dd>F-score 0.78 on ICDAR 2015 at 13.2 frames a second. Weak spot: very long or curved text, which the receptive field cannot see end to end.</dd></div>
-    </dl>
-    
-    <a class="cite" href="https://arxiv.org/abs/1704.03155" target="_blank" rel="noopener">arXiv 1704.03155 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
-  </div>
-</article>
-<article class="item side right stop" id="stn" data-era="e2">
-  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2015</span></div>
-  <div class="card">
-    
-    <div class="eyebrow"><span class="yr">2015</span> · Jaderberg, Simonyan, Zisserman, Kavukcuoglu (DeepMind) · <em>NeurIPS</em></div>
-    <h3>Spatial Transformer: a layer that learns to un-warp its input</h3>
-    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="A warped grid is straightened by a learned transform"><g class="a-unwarp"><path d="M40 30 V120" class="grid"/><path d="M80 30 V120" class="grid"/><path d="M120 30 V120" class="grid"/><path d="M160 30 V120" class="grid"/><path d="M200 30 V120" class="grid"/><path d="M40 30 H200" class="grid"/><path d="M40 60 H200" class="grid"/><path d="M40 90 H200" class="grid"/><path d="M40 120 H200" class="grid"/><text x="120" y="84" class="big" text-anchor="middle">text</text></g><text x="120" y="144" class="cap" text-anchor="middle">a learned warp straightens the input</text></svg></div>
-      <div class="big"><span class="big-n">0</span><span class="big-l">warp labels needed</span></div></div>
-    <dl class="bhr">
-      <div><dt>Before</dt><dd>CNNs tolerated small shifts but not rotation, scale or warping.</dd></div>
-      <div><dt>The breakthrough</dt><dd>A drop-in, differentiable module. A localisation network predicts transform parameters, a grid generator maps the output grid back into the input, and a sampler reads it bilinearly. Gradients flow through all three.</dd></div>
-      <div><dt>Result</dt><dd>Trained with class labels only, it learns to crop, scale and straighten by itself.</dd></div>
-    </dl>
-    
-    <a class="cite" href="https://arxiv.org/abs/1506.02025" target="_blank" rel="noopener">arXiv 1506.02025 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
-  </div>
-</article>
-<article class="item side left stop" id="aster" data-era="e2">
+<article class="item side right stop" id="aster" data-era="e2">
   <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2018</span></div>
   <div class="card">
     
@@ -693,14 +705,14 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
       <div class="big"><span class="big-n">20</span><span class="big-l">control points bend the word flat</span></div></div>
     <dl class="bhr">
       <div><dt>Before</dt><dd>Recognisers read along a straight line, so curved and slanted text failed.</dd></div>
-      <div><dt>The breakthrough</dt><dd>A spatial transformer with a thin-plate spline places control points along the top and bottom of the text and flattens it. An <span class="j" data-k="attention" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-seq"/></svg>Attention</span> decoder then reads the straightened word.</dd></div>
+      <div><dt>The breakthrough</dt><dd>A spatial transformer with a thin-plate spline places control points along the top and bottom of the text and flattens it. An Attention decoder then reads the straightened word.</dd></div>
       <div><dt>Result</dt><dd>Large gains on curved and perspective benchmarks, and state of the art on regular text at the time.</dd></div>
     </dl>
     
     <a class="cite" href="https://doi.org/10.1109/TPAMI.2018.2848939" target="_blank" rel="noopener">doi:10.1109/TPAMI.2018.2848939 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
-<article class="item side right stop" id="craft" data-era="e2">
+<article class="item side left stop" id="craft" data-era="e2">
   <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2019</span></div>
   <div class="card">
     
@@ -717,7 +729,7 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
     <a class="cite" href="https://arxiv.org/abs/1904.01941" target="_blank" rel="noopener">arXiv 1904.01941 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
-<article class="item side left stop" id="baek" data-era="e2">
+<article class="item side right stop" id="baek" data-era="e2">
   <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2019</span></div>
   <div class="card">
     
@@ -734,7 +746,7 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
     <a class="cite" href="https://arxiv.org/abs/1904.01906" target="_blank" rel="noopener">arXiv 1904.01906 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
-<article class="item side right stop" id="dbnet" data-era="e2">
+<article class="item side left stop" id="dbnet" data-era="e2">
   <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2020</span></div>
   <div class="card">
     
@@ -749,23 +761,6 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
     </dl>
     
     <a class="cite" href="https://arxiv.org/abs/1911.08947" target="_blank" rel="noopener">arXiv 1911.08947 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
-  </div>
-</article>
-<article class="item side left stop" id="transformer" data-era="e2">
-  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2017</span></div>
-  <div class="card">
-    
-    <div class="eyebrow"><span class="yr">2017</span> · Vaswani, Shazeer, Parmar et al. (Google) · <em>NeurIPS</em></div>
-    <h3>Transformer: attention alone, no recurrence</h3>
-    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="Attention lines connecting every word to every other word"><path d="M30 46 C30 80 30 70 30 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M30 46 C30 80 102 70 102 104" class="thread a-flick" style="--d:0.4s;--o:0.35"/><path d="M30 46 C30 80 174 70 174 104" class="thread a-flick" style="--d:0.8s;--o:0.35"/><path d="M66 46 C66 80 30 70 30 104" class="thread a-flick" style="--d:1.2000000000000002s;--o:0.35"/><path d="M66 46 C66 80 66 70 66 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M66 46 C66 80 102 70 102 104" class="thread a-flick" style="--d:0.2s;--o:0.35"/><path d="M66 46 C66 80 138 70 138 104" class="thread a-flick" style="--d:0.4s;--o:0.35"/><path d="M66 46 C66 80 174 70 174 104" class="thread a-flick" style="--d:0.6000000000000001s;--o:0.35"/><path d="M66 46 C66 80 210 70 210 104" class="thread a-flick" style="--d:0.8s;--o:0.95"/><path d="M102 46 C102 80 30 70 30 104" class="thread a-flick" style="--d:1s;--o:0.35"/><path d="M102 46 C102 80 102 70 102 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M102 46 C102 80 174 70 174 104" class="thread a-flick" style="--d:0.4s;--o:0.35"/><path d="M138 46 C138 80 66 70 66 104" class="thread a-flick" style="--d:1s;--o:0.35"/><path d="M138 46 C138 80 138 70 138 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M138 46 C138 80 210 70 210 104" class="thread a-flick" style="--d:0.4s;--o:0.35"/><path d="M174 46 C174 80 30 70 30 104" class="thread a-flick" style="--d:0.6000000000000001s;--o:0.35"/><path d="M174 46 C174 80 102 70 102 104" class="thread a-flick" style="--d:1s;--o:0.35"/><path d="M174 46 C174 80 174 70 174 104" class="thread a-flick" style="--d:0s;--o:0.35"/><path d="M210 46 C210 80 66 70 66 104" class="thread a-flick" style="--d:0.6000000000000001s;--o:0.35"/><path d="M210 46 C210 80 138 70 138 104" class="thread a-flick" style="--d:1s;--o:0.35"/><path d="M210 46 C210 80 210 70 210 104" class="thread a-flick" style="--d:0s;--o:0.35"/><rect x="14" y="28" width="32" height="18" class="lay"/><text x="30" y="41" class="mono small" text-anchor="middle">The</text><rect x="14" y="104" width="32" height="18" class="lay"/><text x="30" y="117" class="mono small" text-anchor="middle">The</text><rect x="50" y="28" width="32" height="18" class="lay"/><text x="66" y="41" class="mono small" text-anchor="middle">total</text><rect x="50" y="104" width="32" height="18" class="lay"/><text x="66" y="117" class="mono small" text-anchor="middle">total</text><rect x="86" y="28" width="32" height="18" class="lay"/><text x="102" y="41" class="mono small" text-anchor="middle">is</text><rect x="86" y="104" width="32" height="18" class="lay"/><text x="102" y="117" class="mono small" text-anchor="middle">is</text><rect x="122" y="28" width="32" height="18" class="lay"/><text x="138" y="41" class="mono small" text-anchor="middle">due</text><rect x="122" y="104" width="32" height="18" class="lay"/><text x="138" y="117" class="mono small" text-anchor="middle">due</text><rect x="158" y="28" width="32" height="18" class="lay"/><text x="174" y="41" class="mono small" text-anchor="middle">on</text><rect x="158" y="104" width="32" height="18" class="lay"/><text x="174" y="117" class="mono small" text-anchor="middle">on</text><rect x="194" y="28" width="32" height="18" class="lay"/><text x="210" y="41" class="mono small" text-anchor="middle">receipt</text><rect x="194" y="104" width="32" height="18" class="lay"/><text x="210" y="117" class="mono small" text-anchor="middle">receipt</text><text x="120" y="142" class="cap soft" text-anchor="middle">every token attends to every token</text></svg></div>
-      <div class="big"><span class="big-n">0</span><span class="big-l">recurrent steps</span></div></div>
-    <dl class="bhr">
-      <div><dt>Before</dt><dd>Sequence models used recurrence, so training was serial and long-range context was hard to learn.</dd></div>
-      <div><dt>The breakthrough</dt><dd>Every <span class="j" data-k="token" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-seq"/></svg>Token</span> looks at every other token through scaled dot-product attention, in parallel, with many heads at once. An <span class="j" data-k="encoder" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-arch"/></svg>Encoder</span> builds context; a <span class="j" data-k="decoder" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-arch"/></svg>Decoder</span> writes the output one token at a time while attending back to it.</dd></div>
-      <div><dt>Result</dt><dd>A new state of the art in translation at a fraction of the training cost. It became the architecture of every modern language and vision-language model.</dd></div>
-    </dl>
-    
-    <a class="cite" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">arXiv 1706.03762 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
 <article class="item side right stop" id="vit" data-era="e2">
@@ -863,24 +858,7 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
     <a class="cite" href="https://arxiv.org/abs/1911.10683" target="_blank" rel="noopener">arXiv 1911.10683 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
-<article class="item side left stop" id="tableformer" data-era="e3">
-  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2022</span></div>
-  <div class="card">
-    
-    <div class="eyebrow"><span class="yr">2022</span> · Nassar, Livathinos, Lysak, Staar (IBM Zurich) · <em>CVPR</em></div>
-    <h3>TableFormer: structure plus a box for every cell</h3>
-    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="Every table cell gets its own box"><rect x="30" y="28" width="42" height="24" class="lay"/><rect x="76" y="28" width="42" height="24" class="lay"/><rect x="122" y="28" width="42" height="24" class="lay"/><rect x="168" y="28" width="42" height="24" class="lay"/><rect x="30" y="56" width="42" height="24" class="lay"/><rect x="76" y="56" width="42" height="24" class="lay"/><rect x="122" y="56" width="42" height="24" class="lay"/><rect x="168" y="56" width="42" height="24" class="lay"/><rect x="30" y="84" width="42" height="24" class="lay"/><rect x="76" y="84" width="42" height="24" class="lay"/><rect x="122" y="84" width="42" height="24" class="lay"/><rect x="168" y="84" width="42" height="24" class="lay"/><rect x="34" y="32" width="34" height="16" class="box a-fade" style="--d:0.00s"/><rect x="80" y="32" width="34" height="16" class="box a-fade" style="--d:0.12s"/><rect x="126" y="32" width="34" height="16" class="box a-fade" style="--d:0.24s"/><rect x="172" y="32" width="34" height="16" class="box a-fade" style="--d:0.36s"/><rect x="34" y="60" width="34" height="16" class="box a-fade" style="--d:0.48s"/><rect x="80" y="60" width="34" height="16" class="box a-fade" style="--d:0.60s"/><rect x="126" y="60" width="34" height="16" class="box a-fade" style="--d:0.72s"/><rect x="172" y="60" width="34" height="16" class="box a-fade" style="--d:0.84s"/><rect x="34" y="88" width="34" height="16" class="box a-fade" style="--d:0.96s"/><rect x="80" y="88" width="34" height="16" class="box a-fade" style="--d:1.08s"/><rect x="126" y="88" width="34" height="16" class="box a-fade" style="--d:1.20s"/><rect x="172" y="88" width="34" height="16" class="box a-fade" style="--d:1.32s"/><text x="120" y="134" class="cap soft" text-anchor="middle">structure tags plus a box per cell</text></svg></div>
-      <div class="big"><span class="big-n">96.75</span><span class="big-l">structure TEDS</span></div></div>
-    <dl class="bhr">
-      <div><dt>Before</dt><dd>Image-to-HTML table models needed their own OCR decoder and gave no box per cell.</dd></div>
-      <div><dt>The breakthrough</dt><dd>A transformer decodes the structure tags while a second head predicts a bounding box for each cell, so cell text can be taken straight from the PDF or an OCR engine.</dd></div>
-      <div><dt>Result</dt><dd>Structure TEDS 96.75 on PubTabNet. The table model inside IBM's open-source Docling.</dd></div>
-    </dl>
-    
-    <a class="cite" href="https://arxiv.org/abs/2203.01017" target="_blank" rel="noopener">arXiv 2203.01017 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
-  </div>
-</article>
-<article class="item side right stop" id="layoutlm" data-era="e3">
+<article class="item side left stop" id="layoutlm" data-era="e3">
   <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2020</span></div>
   <div class="card">
     
@@ -895,6 +873,23 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
     </dl>
     
     <a class="cite" href="https://arxiv.org/abs/1912.13318" target="_blank" rel="noopener">arXiv 1912.13318 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
+  </div>
+</article>
+<article class="item side right stop" id="tableformer" data-era="e3">
+  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2022</span></div>
+  <div class="card">
+    
+    <div class="eyebrow"><span class="yr">2022</span> · Nassar, Livathinos, Lysak, Staar (IBM Zurich) · <em>CVPR</em></div>
+    <h3>TableFormer: structure plus a box for every cell</h3>
+    <div class="vis"><div class="illo"><svg viewBox="0 0 240 150" role="img" aria-label="Every table cell gets its own box"><rect x="30" y="28" width="42" height="24" class="lay"/><rect x="76" y="28" width="42" height="24" class="lay"/><rect x="122" y="28" width="42" height="24" class="lay"/><rect x="168" y="28" width="42" height="24" class="lay"/><rect x="30" y="56" width="42" height="24" class="lay"/><rect x="76" y="56" width="42" height="24" class="lay"/><rect x="122" y="56" width="42" height="24" class="lay"/><rect x="168" y="56" width="42" height="24" class="lay"/><rect x="30" y="84" width="42" height="24" class="lay"/><rect x="76" y="84" width="42" height="24" class="lay"/><rect x="122" y="84" width="42" height="24" class="lay"/><rect x="168" y="84" width="42" height="24" class="lay"/><rect x="34" y="32" width="34" height="16" class="box a-fade" style="--d:0.00s"/><rect x="80" y="32" width="34" height="16" class="box a-fade" style="--d:0.12s"/><rect x="126" y="32" width="34" height="16" class="box a-fade" style="--d:0.24s"/><rect x="172" y="32" width="34" height="16" class="box a-fade" style="--d:0.36s"/><rect x="34" y="60" width="34" height="16" class="box a-fade" style="--d:0.48s"/><rect x="80" y="60" width="34" height="16" class="box a-fade" style="--d:0.60s"/><rect x="126" y="60" width="34" height="16" class="box a-fade" style="--d:0.72s"/><rect x="172" y="60" width="34" height="16" class="box a-fade" style="--d:0.84s"/><rect x="34" y="88" width="34" height="16" class="box a-fade" style="--d:0.96s"/><rect x="80" y="88" width="34" height="16" class="box a-fade" style="--d:1.08s"/><rect x="126" y="88" width="34" height="16" class="box a-fade" style="--d:1.20s"/><rect x="172" y="88" width="34" height="16" class="box a-fade" style="--d:1.32s"/><text x="120" y="134" class="cap soft" text-anchor="middle">structure tags plus a box per cell</text></svg></div>
+      <div class="big"><span class="big-n">96.75</span><span class="big-l">structure TEDS</span></div></div>
+    <dl class="bhr">
+      <div><dt>Before</dt><dd>Image-to-HTML table models needed their own OCR decoder and gave no box per cell.</dd></div>
+      <div><dt>The breakthrough</dt><dd>A transformer decodes the structure tags while a second head predicts a bounding box for each cell, so cell text can be taken straight from the PDF or an OCR engine.</dd></div>
+      <div><dt>Result</dt><dd>Structure TEDS 96.75 on PubTabNet. The table model inside IBM's open-source Docling.</dd></div>
+    </dl>
+    
+    <a class="cite" href="https://arxiv.org/abs/2203.01017" target="_blank" rel="noopener">arXiv 2203.01017 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
 <article class="item side left stop" id="donut" data-era="e3">
@@ -1031,8 +1026,8 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
     <a class="cite" href="https://arxiv.org/abs/2507.05595" target="_blank" rel="noopener">arXiv 2507.05595 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
-<article class="item side left stop has-demo" id="paddlevl" data-era="e4">
-  <div class="lane" aria-hidden="true"><span class="node live"></span><span class="lane-year">2025</span></div>
+<article class="item side left stop" id="paddlevl" data-era="e4">
+  <div class="lane" aria-hidden="true"><span class="node"></span><span class="lane-year">2025</span></div>
   <div class="card">
     
     <div class="eyebrow"><span class="yr">2025 to 2026</span> · Cui, Sun et al. (Baidu) · <em>arXiv</em></div>
@@ -1044,12 +1039,7 @@ h1 span { display: block; color: var(--ochre); font-family: var(--serif); font-s
       <div><dt>The breakthrough</dt><dd>Split the job. A small <span class="j" data-k="layout" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-doc"/></svg>Layout analysis</span> model fixes regions and reading order; each crop goes to a 0.9B <span class="j" data-k="vlm" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-arch"/></svg>VLM</span> that writes text, HTML tables, LaTeX or chart data. Version 1.6 added a hard-region data engine plus <span class="j" data-k="sft" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-learn"/></svg>SFT</span> and <span class="j" data-k="grpo" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-learn"/></svg>GRPO</span>.</dd></div>
       <div><dt>Result</dt><dd>96.33 on <span class="j" data-k="omnidoc" tabindex="0" role="button" aria-haspopup="dialog"><svg class="ji" aria-hidden="true"><use href="#i-metric"/></svg>OmniDocBench</span> v1.6 at 0.9B parameters, 109+ languages, Apache-2.0 (Baidu-reported).</dd></div>
     </dl>
-    <a class="demo" href="https://paddleocr-inside.vercel.app" target="_blank" rel="noopener">
-    <span class="demo-shot" data-shot="paddle" aria-hidden="true"><span class="shot-fb illo"><svg viewBox="0 0 240 150" role="img" aria-label="Layout regions numbered in reading order, each crop sent to a small VLM"><rect x="12" y="12" width="104" height="84" class="px"/><g class="a-fade" style="--d:0.00s"><rect x="18" y="18" width="92" height="14" class="box"/><text x="22" y="29" class="mono small hot2">1</text></g><g class="a-fade" style="--d:0.20s"><rect x="18" y="38" width="44" height="50" class="box"/><text x="22" y="49" class="mono small hot2">2</text></g><g class="a-fade" style="--d:0.40s"><rect x="66" y="38" width="44" height="26" class="box"/><text x="70" y="49" class="mono small hot2">3</text></g><g class="a-fade" style="--d:0.60s"><rect x="66" y="68" width="44" height="20" class="box"/><text x="70" y="79" class="mono small hot2">4</text></g><g class="a-slidein" style="--d:0.00s"><rect x="146" y="14" width="74" height="18" class="fm"/><text x="183" y="27" class="mono small" text-anchor="middle">title</text></g><g class="a-slidein" style="--d:0.25s"><rect x="146" y="36" width="74" height="18" class="fm"/><text x="183" y="49" class="mono small" text-anchor="middle">text</text></g><g class="a-slidein" style="--d:0.50s"><rect x="146" y="58" width="74" height="18" class="fm"/><text x="183" y="71" class="mono small" text-anchor="middle">table</text></g><g class="a-slidein" style="--d:0.75s"><rect x="146" y="80" width="74" height="18" class="fm"/><text x="183" y="93" class="mono small" text-anchor="middle">formula</text></g><path d="M120 54L140 54" class="ln" marker-end="url(#ah)" /><text x="64" y="118" class="cap" text-anchor="middle">layout + reading order</text><text x="183" y="118" class="cap" text-anchor="middle">0.9B VLM per crop</text><text x="120" y="142" class="cap soft" text-anchor="middle">the VLM never sees a whole page</text></svg></span><span class="demo-play"><svg><use href="#i-play"/></svg></span></span>
-    <span class="demo-body"><span class="demo-k">Live visualiser</span>
-    <span class="demo-name">PaddleOCR Viz <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></span>
-    <span class="demo-blurb">PP-OCRv6 in the browser through all 21 stages of its forward pass, then PaddleOCR-VL's layout-first document parsing.</span>
-    <span class="chips"><span class="chip">dense page in about 4 s</span><span class="chip">18,708-character dictionary</span><span class="chip">detection map you can scrub</span></span></span></a>
+    
     <a class="cite" href="https://arxiv.org/abs/2510.14528" target="_blank" rel="noopener">arXiv 2510.14528 <svg class="ext" aria-hidden="true"><use href="#i-ext"/></svg></a>
   </div>
 </article>
